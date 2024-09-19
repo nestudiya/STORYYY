@@ -1,21 +1,3 @@
-python
-import telegram
-from telegram import Update
-from telegram.ext import Updater, CommandHandler, MessageHandler, Filters, CallbackQueryHandler
-from telegram.ext.callbackcontext import CallbackContext
-from telegram.ext.conversationhandler import ConversationHandler
-from decouple import config
-from openai import OpenAI
-
-# Настройки
-BOT_TOKEN = config("BOT_TOKEN")
-OPENAI_API_KEY = config("OPENAI_API_KEY")
-
-# Инициализация OpenAI
-client = OpenAI(api_key=OPENAI_API_KEY)
-
-# Состояния диалога
-CHOOSING, GAME_START, CHOOSING_OPTION, END = range(4)
 
 # Список жанров
 GENRES = ["Фэнтези", "Фантастика", "Детектив", "Роман", "Приключения"]
@@ -58,14 +40,14 @@ def genre_chosen(update: Update, context: CallbackContext) -> int:
  user = update.effective_user
  genre = update.message.text
  if genre in GENRES:
- context.user_data['genre'] = genre
- story_text = generate_story(genre)
- option = generate_options(story_text)
- update.message.reply_text(f"Отлично! \n\n{story_text}\n\nЧто будет дальше? \n\n{option}")
- return CHOOSING_OPTION
- else:
- update.message.reply_text("Извини, я не понял. \n\nВыбери жанр истории: {', '.join(GENRES)}.")
- return CHOOSING
+      context.user_data['genre'] = genre
+      story_text = generate_story(genre)
+      option = generate_options(story_text)
+      update.message.reply_text(f"Отлично! \n\n{story_text}\n\nЧто будет дальше? \n\n{option}")
+      return CHOOSING_OPTION
+      else:
+      update.message.reply_text("Извини, я не понял. \n\nВыбери жанр истории: {', '.join(GENRES)}.")
+      return CHOOSING
 
 # Обработка выбора варианта
 def option_chosen(update: Update, context: CallbackContext) -> int:
