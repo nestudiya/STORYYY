@@ -1,3 +1,5 @@
+О, похоже, я пропустил его. Вот исправленный код:
+
 ```python
 import os
 import requests
@@ -11,7 +13,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 # Настройки
-BOT_TOKEN = os.getenv("7668252504:AAFSuBG8vUKVH8REezRUBJNBwQTT7oPZMZo")
+BOT_TOKEN = '7668252504:AAFSuBG8vUKVH8REezRUBJNBwQTT7oPZMZo'
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 
 # Инициализация OpenAI
@@ -82,7 +84,3 @@ def option_chosen(update: Update, context: CallbackContext) -> int:
     story_text = generate_story(context.user_data["genre"])
     update.message.reply_text(f"{story_text}\n\nЧто будет дальше?")
     return CHOOSING_OPTION
-
-# Запуск бота
-conv_handler = ConversationHandler(
-    entry_
