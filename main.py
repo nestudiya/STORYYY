@@ -4,13 +4,7 @@ GENRES = ["Фэнтези", "Фантастика", "Детектив", "Ром�
 
 # Создание функции генерации сюжета и персонажей с помощью OpenAI
 def generate_story(genre):
- response = client.completions.create(
- model="text-davinci-003",
- prompt=f"Напиши краткий сюжет рассказа в жанре {genre}.",
- max_tokens=100,
- temperature=0.7
- )
- story_text = response.choices[0].text.strip()
+ response = client.completions.create (model="text-davinci-003", prompt=f"Напиши краткий сюжет рассказа в жанре {genre}.",max_tokens=100,temperature=0.7) story_text = response.choices[0].text.strip()
  return story_text
 
 # Создание функции генерации вариантов для голосования с помощью OpenAI
