@@ -8,7 +8,7 @@ from decouple import config
 from openai import OpenAI
 
 # Настройки
-BOT_TOKEN = config("BOT_TOKEN")
+BOT_TOKEN = config("7668252504:AAFSuBG8vUKVH8REezRUBJNBwQTT7oPZMZo")
 OPENAI_API_KEY = config("OPENAI_API_KEY")
 
 # Инициализация OpenAI
