@@ -58,14 +58,14 @@ def genre_chosen(update: Update, context: CallbackContext) -> int:
  user = update.effective_user
  genre = update.message.text
  if genre in GENRES:
- context.user_data['genre'] = genre
- story_text = generate_story(genre)
- option = generate_options(story_text)
- update.message.reply_text(f"Отлично! \n\n{story_text}\n\nЧто будет дальше? \n\n{option}")
- return CHOOSING_OPTION
- else:
- update.message.reply_text("Извини, я не понял. \n\nВыбери жанр истории: {', '.join(GENRES)}.")
- return CHOOSING
+      context.user_data['genre'] = genre
+      story_text = generate_story(genre)
+      option = generate_options(story_text)
+      update.message.reply_text(f"Отлично! \n\n{story_text}\n\nЧто будет дальше? \n\n{option}")
+      return CHOOSING_OPTION
+      else:
+      update.message.reply_text("Извини, я не понял. \n\nВыбери жанр истории: {', '.join(GENRES)}.")
+      return CHOOSING
 
 # Обработка выбора варианта
 def option_chosen(update: Update, context: CallbackContext) -> int:
