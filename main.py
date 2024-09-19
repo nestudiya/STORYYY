@@ -1,4 +1,4 @@
-О, похоже, я```python
+```python
 import os
 import requests
 import telegram
