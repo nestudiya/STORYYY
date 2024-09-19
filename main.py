@@ -1,6 +1,4 @@
-О, похоже, я пропустил его. Вот исправленный код:
-
-```python
+О, похоже, я```python
 import os
 import requests
 import telegram
