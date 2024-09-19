@@ -1,4 +1,4 @@
-python
+'gameofstory'
 import os
 import requests
 import telegram
